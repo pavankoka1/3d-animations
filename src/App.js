@@ -1,9 +1,10 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useMemo } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Canvas, useFrame, extend, useThree } from "react-three-fiber";
-import { Stars } from "@react-three/drei";
+import { Stars, draco } from "@react-three/drei";
 import { useSpring, a } from "@react-spring/three";
 
 import styles from "./App.module.scss";
@@ -16,7 +17,7 @@ function SpaceShip() {
 
   useEffect(() => {
     new GLTFLoader().load("/assets/space-ship/scene.gltf", setModel);
-  });
+  }, []);
 
   useFrame(() => {
     if (spachShipRef.current) spachShipRef.current.rotation.y += 0.01;
