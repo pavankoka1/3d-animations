@@ -3,7 +3,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Canvas, useFrame, extend, useThree } from "react-three-fiber";
-import { useSpring, a } from "react-spring/three";
+import { useSpring, a } from "@react-spring/three";
 
 import styles from "./App.module.scss";
 
@@ -93,8 +93,8 @@ function App() {
         <Controls />
         <ambientLight intensity={0.5} />
         <spotLight castShadow position={[15, 20, 5]} penumbra={1} />
-        {/* <Box /> */}
-        {/* <Plane /> */}
+        {/* <Box />
+        <Plane /> */}
         <SpaceShip />
       </Canvas>
     </div>
