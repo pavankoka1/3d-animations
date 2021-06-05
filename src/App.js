@@ -3,7 +3,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Canvas, useFrame, extend, useThree } from "react-three-fiber";
-// import { useSpring, a } from "react-spring/three";
+import { useSpring, a } from "react-spring/three";
 
 import styles from "./App.module.scss";
 
@@ -49,35 +49,35 @@ function Controls() {
   );
 }
 
-// function Box() {
-//   const meshRef = useRef();
-//   const [hovered, setHovered] = useState(false);
-//   const [active, setActive] = useState(false);
+function Box() {
+  const meshRef = useRef();
+  const [hovered, setHovered] = useState(false);
+  const [active, setActive] = useState(false);
 
-//   const props = useSpring({
-//     scale: active ? [1.5, 1.5, 1.5] : [1, 1, 1],
-//     color: hovered ? "pink" : "lightblue",
-//   });
-//   // useFrame(() => {
-//   //   meshRef.current.rotation.y = meshRef.current.rotation.x += 0.01;
-//   // });
+  const props = useSpring({
+    scale: active ? [1.5, 1.5, 1.5] : [1, 1, 1],
+    color: hovered ? "pink" : "lightblue",
+  });
+  // useFrame(() => {
+  //   meshRef.current.rotation.y = meshRef.current.rotation.x += 0.01;
+  // });
 
-//   return (
-//     <a.mesh
-//       castShadow
-//       ref={meshRef}
-//       onPointerOver={() => setHovered(true)}
-//       onPointerOut={() => setHovered(false)}
-//       onClick={() => setActive(!active)}
-//       scale={props.scale}
-//     >
-//       <ambientLight />
-//       <spotLight castShadow position={[0, 5, 10]} penumbra={1} />
-//       <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
-//       <a.meshPhysicalMaterial attach="material" color={props.color} />
-//     </a.mesh>
-//   );
-// }
+  return (
+    <a.mesh
+      castShadow
+      ref={meshRef}
+      onPointerOver={() => setHovered(true)}
+      onPointerOut={() => setHovered(false)}
+      onClick={() => setActive(!active)}
+      scale={props.scale}
+    >
+      <ambientLight />
+      <spotLight castShadow position={[0, 5, 10]} penumbra={1} />
+      <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
+      <a.meshPhysicalMaterial attach="material" color={props.color} />
+    </a.mesh>
+  );
+}
 
 function App() {
   return (
